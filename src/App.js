@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
 
-function App() {
+import { Routes, Route } from "react-router-dom";
+
+import CssBaseline from "@material-ui/core/CssBaseline";
+import Box from "@mui/material/Box";
+
+import { ProcessedDataProvider } from "./contexts/ProcessedData";
+
+import Header from "./components/Header";
+
+import Result from "./pages/Result";
+import Home from "./pages/Home";
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <CssBaseline />
+
+      <Header />
+
+      <Box
+        sx={{
+          width: "100%",
+          height: "calc(100vh - 64px)",
+          // backgroundColor: "secondary.main",
+          // color: "#fff",
+        }}
+      >
+        <ProcessedDataProvider>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/resultado" element={<Result />} />
+          </Routes>
+        </ProcessedDataProvider>
+      </Box>
     </div>
   );
-}
+};
 
 export default App;
