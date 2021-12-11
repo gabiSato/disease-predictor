@@ -41,7 +41,7 @@ ipcMain.on("process-data", (event, path) => {
       //   // res.send(dataToSend)
       // });
       PythonShell.run(
-        "main/script.py",
+        "main/script3.py",
         { args: [JSON.stringify({ data: fileContent })] },
         function (err, results) {
           if (err) throw err;
