@@ -20,12 +20,11 @@ export class ProcessedDataProvider extends React.PureComponent {
     ipcRenderer.send("process-data", filePath);
 
     ipcRenderer.on("process-data", (_, arg) => {
-      if (arg?.data) {
-        this.setState({
-          data: arg.data,
-          loading: false,
-        });
-      }
+      let state = { data: [], loading: false };
+
+      if (arg?.data) state = { ...state, data: arg.data };
+
+      this.setState(state);
     });
   };
 

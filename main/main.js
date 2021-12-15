@@ -10,14 +10,21 @@ require("./processData");
 function createWindow() {
   // Create the browser window.
   const win = new BrowserWindow({
+    show: false,
     width: 800,
     height: 600,
     webPreferences: {
       nodeIntegration: true,
       enableRemoteModule: true,
       contextIsolation: false,
+      devTools: false,
     },
   });
+
+  win.title = "Sistema Fuzzy";
+  win.menuBarVisible = false;
+  win.maximize();
+  win.show();
 
   win.loadURL(
     isDev

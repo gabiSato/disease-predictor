@@ -3,7 +3,7 @@ const { ipcMain } = require("electron");
 const { PythonShell } = require("python-shell");
 const csv = require("csv-parser");
 const fs = require("fs");
-const { spawn } = require("child_process");
+// const { spawn } = require("child_process");
 
 ipcMain.on("process-data", (event, path) => {
   console.log(path);
@@ -15,7 +15,7 @@ ipcMain.on("process-data", (event, path) => {
     .pipe(csv())
     .on("data", (data) => fileContent.push(data))
     .on("end", () => {
-      const chunks = [];
+      // const chunks = [];
 
       // const python = spawn("python", [
       //   "public/script.py",
@@ -41,7 +41,7 @@ ipcMain.on("process-data", (event, path) => {
       //   // res.send(dataToSend)
       // });
       PythonShell.run(
-        "main/script3.py",
+        "main/script.py",
         { args: [JSON.stringify({ data: fileContent })] },
         function (err, results) {
           if (err) throw err;

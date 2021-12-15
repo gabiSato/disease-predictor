@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 import Typography from "@material-ui/core/Typography";
@@ -13,20 +13,15 @@ const Home = () => {
   let navigate = useNavigate();
 
   const {
-    state: { loading, data },
     action: { processFile },
   } = useContext(ProcessedDataContext);
-
-  useEffect(() => {
-    if (!loading && !!data?.length) {
-      navigate("/resultado");
-    }
-  }, [loading, data]);
 
   const handleProcessData = (e) => {
     const file = e.target.files[0];
 
     processFile(file.path);
+
+    navigate("/resultado");
   };
 
   return (
