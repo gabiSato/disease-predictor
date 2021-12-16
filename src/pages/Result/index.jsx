@@ -4,9 +4,6 @@ import Container from "@mui/material/Container";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 
-import Box from "@mui/material/Box";
-
-import CircularProgress from "@mui/material/CircularProgress";
 import Input from "@material-ui/core/Input";
 
 import { ProcessedDataContext } from "../../contexts/ProcessedData";
@@ -48,16 +45,7 @@ const Result = () => {
         </Button>
       </label>
 
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          width: "100%",
-          paddingY: "20px",
-        }}
-      >
-        {loading ? <CircularProgress /> : <ResultTable data_={data} />}
-      </Box>
+      <ResultTable loading={loading} data={data} />
     </Container>
   );
 };
