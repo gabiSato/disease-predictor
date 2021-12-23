@@ -13,19 +13,31 @@ const ResultTable = ({ loading, data }) => {
   const columns = [
     { field: "id", headerName: "id" },
     { field: "microregiao", headerName: "Microregião", flex: 1 },
-    { field: "prevalencia", headerName: "Prevalencia", flex: 1 },
-    { field: "idh", headerName: "IDH", flex: 1 },
-    { field: "qes", headerName: "QES", flex: 1 },
+    {
+      field: "prevalencia",
+      headerName: "Prevalencia",
+      flex: 1,
+      valueFormatter: (params) => Number(params.value).toLocaleString(),
+    },
+    {
+      field: "idh",
+      headerName: "IDH",
+      flex: 1,
+      valueFormatter: (params) => Number(params.value).toLocaleString(),
+    },
+    {
+      field: "qes",
+      headerName: "QES",
+      flex: 1,
+      valueFormatter: (params) => Number(params.value).toLocaleString(),
+    },
     {
       field: "result",
       headerName: "Resultado",
       flex: 1,
       valueFormatter: (params) => {
-        const valueFormatted = Number(params.value * 100).toLocaleString();
-
-        return `${valueFormatted} %`;
+        return Number(params.value * 100).toLocaleString();
       },
-      valueParser: (value) => Number(value) / 100,
     },
   ];
 
