@@ -13,6 +13,8 @@ const ROWS_PER_PAGE = 8;
 const ResultTable = ({ loading, data }) => {
   const [pageSize, setPageSize] = useState(ROWS_PER_PAGE);
   const [open, setOpen] = useState(false);
+  const [image, setImage] = useState(null);
+  const [microregion, setMicroregion] = useState(null);
 
   const columns = useMemo(
     () => [
@@ -55,8 +57,9 @@ const ResultTable = ({ loading, data }) => {
         getActions: (params) => [
           <Button
             onClick={() => {
-              console.log(params.row?.result);
               setOpen(true);
+              setImage(params.row?.image);
+              setMicroregion(params.row?.microregiao);
             }}
           >
             vizualizar
@@ -68,6 +71,8 @@ const ResultTable = ({ loading, data }) => {
   );
 
   const onPageSizeChange = (newPageSize) => setPageSize(newPageSize);
+
+  const handleClose = () => setOpen(false);
 
   return (
     <React.Fragment>
@@ -90,7 +95,12 @@ const ResultTable = ({ loading, data }) => {
         }}
       />
 
-      <ChartModal open={open} onClose={() => setOpen(false)} />
+      <ChartModal
+        open={open}
+        onClose={handleClose}
+        image={image}
+        microregion={microregion}
+      />
     </React.Fragment>
   );
 };

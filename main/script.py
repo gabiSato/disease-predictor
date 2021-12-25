@@ -2,6 +2,8 @@ import sys, json
 import numpy as np
 import skfuzzy as fuzz
 import matplotlib.pyplot as plt
+import base64
+import os
 
 if __name__ == '__main__':
   arg = json.loads(sys.argv[1])
@@ -88,9 +90,10 @@ if __name__ == '__main__':
     new_value = row.copy()
     new_value['id'] = id
     new_value['result'] = doenca
-    results.append(new_value)
 
     # Geração do gráfico final
+    plt.rc('figure', max_open_warning = 0)
+
     fig, ax0 = plt.subplots(figsize=(12, 6))
 
     ax0.set_ylim([0, 1.01])
@@ -116,7 +119,15 @@ if __name__ == '__main__':
     ax0.set_ylabel('Associações')
     ax0.set_xlabel('LTA')
 
-    plt.savefig(r'assets\result' + str(id) + '.png')
+    plt.savefig('assets\chart_image.png')
+
+    with open('assets\chart_image.png', "rb") as f:
+      encoded_image = base64.b64encode(f.read())
+      new_value['image'] = encoded_image.decode("ascii")
+      f.close()
+
+    results.append(new_value)
+    os.remove('assets\chart_image.png')
 
     id = id + 1
 
