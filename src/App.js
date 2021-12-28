@@ -2,6 +2,9 @@ import React from "react";
 
 import { Routes, Route } from "react-router-dom";
 
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { ptBR } from "@mui/material/locale";
+
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Box from "@mui/material/Box";
 
@@ -13,8 +16,10 @@ import Result from "./pages/Result";
 import Home from "./pages/Home";
 
 const App = () => {
+  const theme = createTheme({}, ptBR);
+
   return (
-    <div>
+    <ThemeProvider theme={theme}>
       <CssBaseline />
 
       <Header />
@@ -34,7 +39,7 @@ const App = () => {
           </Routes>
         </ProcessedDataProvider>
       </Box>
-    </div>
+    </ThemeProvider>
   );
 };
 
