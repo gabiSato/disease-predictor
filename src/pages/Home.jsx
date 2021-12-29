@@ -36,7 +36,7 @@ const Home = () => {
         }}
       >
         <Typography component="h1" variant="h2" align="center" gutterBottom>
-          FuzzyS
+          Sistema Fuzzy
         </Typography>
 
         <Typography
@@ -47,6 +47,44 @@ const Home = () => {
         >
           Analise a probabilidade de ocorrencia de leishmaniose
         </Typography>
+
+        <Typography
+          align="center"
+          color="text.secondary"
+          paragraph
+          sx={{ maxWidth: "60%", mt: "32px" }}
+        >
+          Para começar, caregue um arquivo .csv com as colunas:{" "}
+          <strong>microrregiao, prevalencia, idh e qes</strong>. Lembre-se de
+          colocar os dados numéricos separados por <strong>"."</strong> em vez
+          de <strong>","</strong>.
+          <br />
+          Veja o exemplo abaixo:
+        </Typography>
+
+        <Box
+          sx={{
+            width: "320px",
+            background: "#f4f2f0",
+            borderRadius: "4px",
+            p: "20px",
+            color: "#7d7a77",
+            wordSpacing: "4px",
+            lineHeight: "28px",
+            mb: "52px",
+          }}
+        >
+          <span>
+            microregiao, prevalencia, idh, qes
+            <br />
+            óbidos, 0.038, 0.601, 172.00
+            <br />
+            santarém, 0.040, 0.487, 547.00
+            <br />
+            almeirim, 0.034, 0.573, 59.00
+            <br />
+          </span>
+        </Box>
 
         <label htmlFor="csv-file-upload">
           <Input
