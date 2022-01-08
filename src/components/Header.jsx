@@ -10,7 +10,9 @@ const Header = () => {
     <AppBar position="static">
       <Toolbar disableGutters>
         <Container maxWidth="lg">
-          <Typography variant="h6">Sistema Fuzzy</Typography>
+          <Typography variant="h6">
+            Sistema Fuzzy de Análise Epidemiologica
+          </Typography>
         </Container>
       </Toolbar>
     </AppBar>

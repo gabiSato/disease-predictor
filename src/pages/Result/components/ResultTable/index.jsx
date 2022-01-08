@@ -20,27 +20,24 @@ const ResultTable = ({ loading, data }) => {
     () => [
       { field: "id", headerName: "id" },
       {
-        field: "microregiao",
-        headerName: "Microregião",
+        field: "microrregiao",
+        headerName: "Microrregião",
         flex: 1,
       },
       {
         field: "prevalencia",
-        headerName: "Prevalencia",
+        headerName: "Prevalência",
         flex: 1,
-        valueFormatter: (params) => Number(params.value).toLocaleString(),
       },
       {
         field: "idh",
         headerName: "IDH",
         flex: 1,
-        valueFormatter: (params) => Number(params.value).toLocaleString(),
       },
       {
-        field: "qes",
-        headerName: "QES",
+        field: "cses",
+        headerName: "CSES",
         flex: 1,
-        valueFormatter: (params) => Number(params.value).toLocaleString(),
       },
       {
         field: "result",

@@ -36,7 +36,7 @@ const Home = () => {
         }}
       >
         <Typography component="h1" variant="h2" align="center" gutterBottom>
-          Sistema Fuzzy
+          Sistema Fuzzy de Análise Epidemiologica
         </Typography>
 
         <Typography
@@ -55,7 +55,7 @@ const Home = () => {
           sx={{ maxWidth: "60%", mt: "32px" }}
         >
           Para começar, caregue um arquivo .csv com as colunas:{" "}
-          <strong>microrregiao, prevalencia, idh e qes</strong>. Lembre-se de
+          <strong>microrregiao, prevalencia, idh e cses</strong>. Lembre-se de
           colocar os dados numéricos separados por <strong>"."</strong> em vez
           de <strong>","</strong>.
           <br />
@@ -75,7 +75,7 @@ const Home = () => {
           }}
         >
           <span>
-            microregiao, prevalencia, idh, qes
+            microrregiao, prevalencia, idh, cses
             <br />
             óbidos, 0.038, 0.601, 172.00
             <br />
